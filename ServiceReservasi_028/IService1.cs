@@ -12,40 +12,33 @@ namespace ServiceReservasi_028
     public interface IService1
     {
         [OperationContract]
-        //method proses input data
-        string pemesanan(string IdPemesanan, string NamaCustomer, string NoTelp, int JumlahPemesanan, string IdLokasi);
+        string pemesanan(string IDPemesanan, string NamaCustomer, string NoTelpon, int JumlahPemesanan, string IDLokasi);
         [OperationContract]
-        string editPemesanan(string idPemesanan, string namaCustomer);
+        string editpemesanan(string IDPemesanan, string NamaCustomer, string No_telpon);
         [OperationContract]
-        string deletePemesanan(string idPemesanan);
+        string deletepemesanan(string IDPemesanan);
         [OperationContract]
-        //Menampilkan data yang ada di database
-        List<CekLokasi> reviewLokasi();
+        List<CekLokasi> ReviewLokasi(); //menampilkan data di database
         [OperationContract]
-        //Menampilkan detail lokasi
         List<DetailLokasi> DetailLokasi();
         [OperationContract]
         List<Pemesanan> Pemesanan();
     }
-
-    //Daftar Lokasi
     [DataContract]
-    public class CekLokasi
+    public class CekLokasi //daftar lokasi
     {
         [DataMember]
-        public string IDLokasi { get; set; }
+        public string IDLokasi { get; set; } //variabel dari public class
         [DataMember]
         public string NamaLokasi { get; set; }
         [DataMember]
-        public string Deskripsi { get; set; }
+        public string DeskripsiSingkat { get; set; }
     }
-
-    //Menampilkan detail lokasi
     [DataContract]
-    public class DetailLokasi
+    public class DetailLokasi //menampilkan detail lokasi
     {
         [DataMember]
-        public string IdLokasi { get; set; }
+        public string IDLokasi { get; set; }
         [DataMember]
         public string NamaLokasi { get; set; }
         [DataMember]
@@ -53,19 +46,18 @@ namespace ServiceReservasi_028
         [DataMember]
         public int Kuota { get; set; }
     }
-
     [DataContract]
-    public class Pemesanan
+    public class Pemesanan //create
     {
         [DataMember]
-        public string IdPemesanan { get; set; }
+        public string IDPemesanan { get; set; }
         [DataMember]
-        public string NamaCustomer { get; set; }
+        public string NamaCustomer { get; set; } //method
         [DataMember]
-        public string NoTelp { get; set; }
+        public string NoTelpon { get; set; }
         [DataMember]
         public int JumlahPemesanan { get; set; }
         [DataMember]
-        public string IdLokasi { get; set; }
+        public string Lokasi { get; set; }
     }
 }
